@@ -1,0 +1,832 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/CurvedRoadSegment.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/StraightRoadSegment.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/RoadLine.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/Roundabout.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/bmw/BmwX5.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/GenericTrafficLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/OrderSign.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/OrderPanel.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/HighwaySign.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.04579859278297372 0.9960540973432961 -0.07601791936597083 0.6687679174998973
+  position -1.8923056871067239 -25.841161417922503 67.88194163858134
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+CurvedRoadSegment {
+  rotation 0 0 1 1.5708003061004252
+  name "road9"
+  width 9
+}
+StraightRoadSegment {
+  translation -10 -20 0
+  rotation 0 0 1 1.5708003061004252
+  name "road9.1"
+  width 9
+  length 20
+}
+StraightRoadSegment {
+  translation -10 -30 0
+  rotation 0 0 1 1.5707896938995747
+  name "road9.2"
+  width 9
+  lines [
+    RoadLine {
+      type "none"
+    }
+  ]
+  rightBorder FALSE
+}
+StraightRoadSegment {
+  translation -10 -57.5 0
+  rotation 0 0 1 1.5708003061004252
+  name "road9.3"
+  width 9
+  length 27.5
+}
+StraightRoadSegment {
+  translation -10 -67.5 0
+  rotation 0 0 1 1.5707896938995747
+  name "road9.4"
+  width 9
+  lines [
+    RoadLine {
+      type "none"
+    }
+  ]
+  rightBorder FALSE
+}
+StraightRoadSegment {
+  translation -10 -83.5 0
+  rotation 0 0 1 1.5708003061004252
+  name "road9.5"
+  width 9
+  length 16
+}
+CurvedRoadSegment {
+  translation 0 -83.5 0
+  rotation 0 0 1 3.141592653589793
+  name "road9.6"
+  width 9
+}
+StraightRoadSegment {
+  translation 0 10 0
+  name "road8"
+  width 9
+}
+StraightRoadSegment {
+  translation -5.5 -25 0
+  name "road8.1"
+  width 9
+  length 16
+}
+StraightRoadSegment {
+  translation -5.4 -63 0
+  name "road8.2"
+  width 9
+  length 16
+}
+StraightRoadSegment {
+  translation 0 -93.5 0
+  name "road8.3"
+  width 9
+}
+StraightRoadSegment {
+  translation 20 10 0
+  name "road6"
+  width 9
+  length 20
+}
+StraightRoadSegment {
+  translation 19.5 -25 0
+  name "road6.1"
+  width 9
+  length 21
+}
+StraightRoadSegment {
+  translation 19.5 -63.5 0
+  name "road6.2"
+  width 9
+  length 17.7
+}
+StraightRoadSegment {
+  translation 20 -93.5 0
+  name "road6.4"
+  width 9
+  length 20
+}
+StraightRoadSegment {
+  translation 50 10 0
+  name "road4"
+  width 9
+  length 20
+}
+StraightRoadSegment {
+  translation 49.5 -25 0
+  name "road4.1"
+  width 9
+  length 21
+}
+StraightRoadSegment {
+  translation 52 -63.5 0
+  name "road4.2"
+  width 9
+  length 18.5
+}
+StraightRoadSegment {
+  translation 50 -93.5 0
+  name "road4.3"
+  width 9
+  length 15
+}
+StraightRoadSegment {
+  translation 75 5.5 0
+  rotation 0 0 1 -1.5707996938995747
+  name "road3.1"
+  width 9
+  length 25.2
+}
+StraightRoadSegment {
+  translation 96 5.3 0
+  rotation 0 0 1 -1.5707996938995747
+  name "road1.3"
+  width 9
+  lines [
+    RoadLine {
+      type "none"
+    }
+  ]
+  leftBorder FALSE
+  length 35.3
+  startLine [
+    ""
+  ]
+}
+StraightRoadSegment {
+  translation 75 -19.5 0
+  rotation 0 0 1 -1.5707996938995747
+  name "road3.2"
+  width 9
+  lines [
+    RoadLine {
+      type "none"
+    }
+  ]
+  rightBorder FALSE
+}
+OrderPanel {
+  translation 68.05 -21.6 2
+  rotation 0 0 1 3.14159
+  name "order panel(9)"
+  signImage [
+    "image/İleriden Sağa Yön Levhası.png"
+  ]
+}
+OrderPanel {
+  translation 68.14 -23.74 2
+  rotation 0 0 1 3.14159
+  name "order panel(10)"
+  signImage [
+    "image/İleriden Sağa Mecburi Yön Levhası.png"
+  ]
+}
+OrderPanel {
+  translation 68.14 -22.68 2
+  rotation 0 0 1 3.14159
+  name "order panel(16)"
+  signImage [
+    "image/İleriden Sağa Mecburi Yön Levhası.png"
+  ]
+}
+OrderPanel {
+  translation 73.56 -38.94 2
+  rotation 0 0 1 1.5708
+  name "order panel(11)"
+  signImage [
+    "image/İleriden Sola Mecburi Yön Levhası.png"
+  ]
+}
+OrderPanel {
+  translation 71.83 -38.94 2
+  rotation 0 0 1 1.5708
+  name "order panel(12)"
+  signImage [
+    "image/İleriden Sola Mecburi Yön Levhası.png"
+  ]
+}
+StraightRoadSegment {
+  translation 75 -29.5 0
+  rotation 0 0 1 -1.5707996938995747
+  name "road3.3"
+  width 9
+  leftBorder FALSE
+}
+StraightRoadSegment {
+  translation 75 -39.5 0
+  rotation 0 0 1 -1.5707996938995747
+  name "road3.4"
+  width 9
+  length 19
+}
+StraightRoadSegment {
+  translation 75 -58.5 0
+  rotation 0 0 1 -1.5707996938995747
+  name "road3.5"
+  width 9
+  lines [
+    RoadLine {
+      type "none"
+    }
+  ]
+  rightBorder FALSE
+}
+StraightRoadSegment {
+  translation 75 -68.5 0
+  rotation 0 0 1 -1.5707996938995747
+  name "road3.6"
+  width 9
+  length 15
+}
+CurvedRoadSegment {
+  translation 65 -83.5 0
+  rotation 0 0 1 -1.5707950010791611
+  name "road3.7"
+  width 9
+}
+StraightRoadSegment {
+  translation 10 10 0
+  rotation 0.7071067811865475 0 0.7071067811865475 0
+  name "road7"
+  width 9
+  lines [
+    RoadLine {
+      type "none"
+    }
+  ]
+  rightBorder FALSE
+}
+StraightRoadSegment {
+  translation 15 -20.5 0
+  rotation 0 0 1 1.5707996938995747
+  name "road7.1"
+  width 9
+  length 26
+}
+StraightRoadSegment {
+  translation 10.5 -25 0
+  rotation 0.7071067811865475 0 0.7071067811865475 0
+  name "road7.2"
+  width 9
+  lines [
+    RoadLine {
+      type "none"
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  length 9
+}
+StraightRoadSegment {
+  translation 15 -59 0
+  rotation 0 0 1 1.5707996938995747
+  name "road7.3"
+  width 9
+  length 29.5
+}
+StraightRoadSegment {
+  translation 15 -89 0
+  rotation 0 0 1 1.5707996938995747
+  name "road7.5"
+  width 9
+  length 21
+}
+StraightRoadSegment {
+  translation 10.5 -63.5 0
+  rotation 0.7071067811865475 0 0.7071067811865475 0
+  name "road7.4"
+  width 9
+  lines [
+    RoadLine {
+      type "none"
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  length 9
+}
+StraightRoadSegment {
+  translation 10 -93.5 0
+  rotation 0.7071067811865475 0 0.7071067811865475 0
+  name "road7.6"
+  width 9
+  lines [
+    RoadLine {
+      type "none"
+    }
+  ]
+  leftBorder FALSE
+}
+StraightRoadSegment {
+  translation 40 10 0
+  rotation 0.7071067811865475 0 0.7071067811865475 0
+  name "road5"
+  width 9
+  lines [
+    RoadLine {
+      type "none"
+    }
+  ]
+  rightBorder FALSE
+}
+OrderSign {
+  translation 52 11.4 0
+  rotation 0 0 1 0.3927003061004253
+  name "order sign2"
+  signBoards [
+    OrderPanel {
+      translation 0.026 0 -0.175
+      signImage [
+        "image/İleri Mecburi Yön Levhası.png"
+        ""
+      ]
+    }
+  ]
+}
+OrderSign {
+  translation 52 13.6 0
+  rotation 0 0 1 -0.5236003061004253
+  name "order sign2(1)"
+  signBoards [
+    OrderPanel {
+      translation 0.026 0 -0.175
+      signImage [
+        "image/İleri Mecburi Yön Levhası.png"
+        ""
+      ]
+    }
+  ]
+}
+OrderSign {
+  translation 22 11.4 0
+  rotation 0 0 1 0.3926996938995747
+  name "order sign3"
+  signBoards [
+    OrderPanel {
+      translation 0.026 0 -0.175
+      signImage [
+        "image/İleri Mecburi Yön Levhası.png"
+        ""
+      ]
+    }
+  ]
+}
+OrderSign {
+  translation 22 13.7 0
+  rotation 0 0 1 -0.5235996938995747
+  name "order sign3(1)"
+  signBoards [
+    OrderPanel {
+      translation 0.026 0 -0.175
+      signImage [
+        "image/İleri Mecburi Yön Levhası.png"
+        ""
+      ]
+    }
+  ]
+}
+GenericTrafficLight {
+  translation 40 -20.5 0
+  rotation 0 0 1 1.5707963267948968
+  name "generic traffic light 1"
+  greenTime 3
+  redTime 3
+  state "green"
+}
+GenericTrafficLight {
+  translation 89.27 14.5 0.1
+  rotation 0 0 1 4.692820414042842e-06
+  name "generic traffic light 1(1)"
+  greenTime 3
+  redTime 3
+  state "green"
+}
+GenericTrafficLight {
+  translation 10 -20.5 0.1
+  rotation 0 0 1 1.5707963267948968
+  name "generic traffic light 2"
+  greenTime 3
+  redTime 3
+  state "green"
+}
+StraightRoadSegment {
+  translation 45 -20.5 0
+  rotation 0 0 1 1.5707996938995747
+  name "road5.1"
+  width 9
+  length 26
+}
+StraightRoadSegment {
+  translation 45 -55.6 0
+  rotation 0 0 1 1.5707996938995747
+  name "road5.2"
+  width 9
+  length 26.1
+}
+StraightRoadSegment {
+  translation 45 -89 0
+  rotation 0 0 1 1.5707996938995747
+  name "road5.4"
+  width 9
+  length 18
+}
+Roundabout {
+  translation 45 -63.5 -0.05
+  rotation 0 0 1 -0.7853996938995746
+  startRoadsWidth 9
+}
+StraightRoadSegment {
+  translation 40.5 -25 0
+  rotation 0.7071067811865475 0 0.7071067811865475 0
+  name "road5.3"
+  width 9
+  lines [
+    RoadLine {
+      type "none"
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  length 9
+}
+StraightRoadSegment {
+  translation 40 -93.5 0
+  rotation 0.7071067811865475 0 0.7071067811865475 0
+  name "road5.5"
+  width 9
+  lines [
+    RoadLine {
+      type "none"
+    }
+  ]
+  leftBorder FALSE
+}
+StraightRoadSegment {
+  translation 70 10 0
+  rotation 0.7071067811865475 0 0.7071067811865475 0
+  name "road3"
+  width 9
+  lines [
+    RoadLine {
+      type "none"
+    }
+  ]
+  rightBorder FALSE
+}
+StraightRoadSegment {
+  translation 80 10 0
+  name "road2"
+  width 9
+  length 5
+}
+OrderPanel {
+  translation 52 12.5 2
+  name "order panel(1)"
+  signImage [
+    "image/İleri Mecburi Yön Levhası.png"
+  ]
+}
+OrderPanel {
+  translation 22 12.5 2
+  name "order panel(2)"
+  signImage [
+    "image/İleri Mecburi Yön Levhası.png"
+  ]
+}
+OrderPanel {
+  translation 9.28 -22.5 2.21
+  rotation 0 0 1 3.14159
+  name "order panel(4)"
+  signImage [
+    "image/İleri Mecburi Yön Levhası.png"
+  ]
+}
+OrderPanel {
+  translation 9.28 -23.76 2.21
+  rotation 0 0 1 3.14159
+  name "order panel(15)"
+  signImage [
+    "image/İleri Mecburi Yön Levhası.png"
+  ]
+}
+OrderPanel {
+  translation 40.04 -61.43 2.21
+  rotation 0 0 1 3.14159
+  name "order panel(17)"
+  signImage [
+    "image/ada.png"
+  ]
+}
+OrderPanel {
+  translation 9.28 -21.45 2.21
+  rotation 0 0 1 3.14159
+  name "order panel(14)"
+  signImage [
+    "image/İleri Mecburi Yön Levhası.png"
+  ]
+}
+OrderPanel {
+  translation 37.52 -21.19 2
+  rotation 0 0 1 3.14159
+  name "order panel(5)"
+  signImage [
+    "image/İleri Mecburi Yön Levhası.png"
+  ]
+}
+OrderPanel {
+  translation 37.52 -22.5 2
+  rotation 0 0 1 3.14159
+  name "order panel(7)"
+  signImage [
+    "image/İleri Mecburi Yön Levhası.png"
+  ]
+}
+OrderPanel {
+  translation 37.52 -23.86 2
+  rotation 0 0 1 3.14159
+  name "order panel(6)"
+  signImage [
+    "image/İleri Mecburi Yön Levhası.png"
+  ]
+}
+OrderPanel {
+  translation -13.62 -18.48 2.23
+  rotation 0 0 1 1.5707996938995747
+  name "order panel(8)"
+  signImage [
+    "image/İleriden Sola Mecburi Yön Levhası.png"
+  ]
+}
+OrderPanel {
+  translation -12.5 -18.5 2.23
+  rotation 0 0 1 1.5707996938995747
+  name "order panel(13)"
+  signImage [
+    "image/İleriden Sola Mecburi Yön Levhası.png"
+  ]
+}
+OrderPanel {
+  translation -11.38 -18.49 2.2
+  rotation 0 0 1 1.5707996938995747
+  name "order panel(3)"
+  signImage [
+    "image/İleriden Sola Mecburi Yön Levhası.png"
+  ]
+}
+StraightRoadSegment {
+  translation 83 10 0
+  name "road1"
+  width 9
+  length 8
+}
+StraightRoadSegment {
+  translation 91 10 0
+  name "road1.1"
+  width 9
+  length 24
+  endLine [
+    ""
+  ]
+}
+StraightRoadSegment {
+  translation 79.5 -34.5 0
+  name "road1.2"
+  width 9
+  length 12
+}
+StraightRoadSegment {
+  translation 100.5 -17 -0.05
+  name "road1.3(1)"
+  width 44
+  numberOfLanes 0
+  numberOfForwardLanes 23
+  lines [
+    RoadLine {
+      type "none"
+      width 0.2
+    }
+  ]
+  roadBorderHeight 0.2
+  leftBorder FALSE
+  length 15
+}
+StraightRoadSegment {
+  translation 99.5 -23 0
+  width 9
+  lines [
+    RoadLine {
+      type "continuous"
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  length 16
+}
+StraightRoadSegment {
+  translation 99.5 -19 0
+  name "road(4)"
+  width 9
+  lines [
+    RoadLine {
+      type "continuous"
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  length 16
+}
+StraightRoadSegment {
+  translation 99.5 -35 0
+  name "road(1)"
+  width 9
+  lines [
+    RoadLine {
+      type "continuous"
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  length 16
+}
+StraightRoadSegment {
+  translation 99.5 -27 0
+  name "road(2)"
+  width 14
+  lines [
+    RoadLine {
+      type "continuous"
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  length 16
+}
+StraightRoadSegment {
+  translation 99.5 -31 0
+  name "road(3)"
+  width 11
+  lines [
+    RoadLine {
+      type "continuous"
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  length 16
+}
+StraightRoadSegment {
+  translation 100.5 -34.5 0
+  rotation 0 0 1 -3.141592653589793
+  name "road1.4"
+  width 9
+  lines [
+    RoadLine {
+      type "none"
+    }
+  ]
+  rightBorder FALSE
+  length 9
+}
+Floor {
+  translation 50 -42 -0.053
+  size 131 114
+  appearance Parquetry {
+    type "chequered"
+    colorOverride 0 0 0
+  }
+}
+BmwX5 {
+  hidden position_0_0 4.079401780099802e-09
+  hidden position2_0_0 -9.917917354746078e-08
+  hidden position_0_1 5.008077501125171e-09
+  hidden position2_0_1 -8.941702812245552e-07
+  hidden position_0_2 4.933068284088175e-05
+  hidden position_0_3 -0.000141999700614015
+  hidden rotation_1 2.037977681462012e-09 0.999155166036209 -0.04109688775510446 9.884312124119402e-08
+  hidden rotation_2 -2.5039994768053348e-09 -0.999984315834872 -0.005600721762695962 8.940696716308668e-07
+  hidden rotation_3 0 -1 0 4.933068517207185e-05
+  hidden rotation_4 0 -1 0 0.00014199970067092947
+  translation 82.32253585409784 -31.99500345447224 0.06843979287281592
+  rotation 0.00145352677004923 -0.9806555307123598 0.19573609105933537 0.018280591082054667
+  controller "my_controller"
+  sensorsSlotFront [
+    Camera {
+      translation 3 0.5 10
+      rotation 0 1 0 1.4399003061004252
+      width 640
+      height 640
+    }
+  ]
+  sensorsSlotTop [
+    Camera {
+      translation 2 0 1
+      name "camera2"
+      width 640
+      height 640
+    }
+  ]
+}
+Floor {
+  translation 119 -18 5
+  rotation 0 -1 0 1.5707963267948968
+  name "floor(1)"
+  size 20 100
+  appearance Parquetry {
+    type "chequered"
+    colorOverride 0 0 0
+  }
+}
+HighwaySign {
+  translation 116.369 -25.2338 7.53
+  rotation 0 0 1 3.14159
+  length 3
+  texture [
+    "image/park.png"
+  ]
+}
+HighwaySign {
+  translation 116.369 -21.0838 7.36
+  rotation 0 0 1 3.14159
+  name "highway sign(2)"
+  length 3
+  texture [
+    "image/images.png"
+  ]
+}
+HighwaySign {
+  translation 116.369 -29.0338 7.42
+  rotation 0 0 1 3.14159
+  name "highway sign(3)"
+  length 3
+  texture [
+    "image/images.png"
+  ]
+}
+HighwaySign {
+  translation 116.369 -32.7638 7.53
+  rotation 0 0 1 3.14159
+  name "highway sign(4)"
+  length 3
+  texture [
+    "image/images.png"
+  ]
+}
+HighwaySign {
+  translation 116.369 -36.8338 7.53
+  rotation 0 0 1 3.14159
+  name "highway sign(1)"
+  length 3
+  texture [
+    "image/images.png"
+  ]
+}
+HighwaySign {
+  translation -211.79 0 -0.1
+  rotation 2.6439799999813825e-06 -0.9999999999929585 2.6631599999812475e-06 1.5708
+  name "highway sign(5)"
+  height 60
+  length 22
+  thickness 0
+  texture [
+    "image/durak_haritası.png"
+  ]
+}
+Floor {
+  translation -212 0 0
+  name "floor(2)"
+  size 73 21
+  appearance Parquetry {
+    type "chequered"
+    colorOverride 0 0 0
+  }
+}
+HighwaySign {
+  translation -206.75 5.95 3.0645
+  rotation -8.77364e-08 1 1.15507e-08 0.261794
+  name "highway sign(6)"
+  height 2
+  length 2
+  texture [
+    "image/durak.png"
+  ]
+}

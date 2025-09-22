@@ -10,6 +10,8 @@
 
 🚗 **An intelligent autonomous vehicle simulation project featuring advanced computer vision and control algorithms**
 
+---
+
 [🇬🇧 English](#english) | [🇹🇷 Türkçe](#türkçe)
 
 </div>

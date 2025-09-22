@@ -1,62 +1,282 @@
+<div align="center">
+
 # Self Driving Car
 
-***The project is still being developed.***
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)  
+[![OpenCV](https://img.shields.io/badge/OpenCV-4.10.0-green.svg)](https://opencv.org)  
+[![YOLOv4](https://img.shields.io/badge/YOLOv4-Detection-red.svg)](https://github.com/AlexeyAB/darknet)  
+[![Webots](https://img.shields.io/badge/Webots-R2023b-orange.svg)](https://cyberbotics.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-***Proje geliştirilmeye devam ediyor.***
+🚗 **An intelligent autonomous vehicle simulation project featuring advanced computer vision and control algorithms**
 
----
+[🇬🇧 English](#english) | [🇹🇷 Türkçe](#türkçe)
 
-## Requirements(Gereksinimler)
-
----
-
-### Webots (R2023b):
-
-For this project, we use simulation software. You can download [Webots R2023b](https://github.com/cyberbotics/webots/releases/tag/R2023b) for your operating system.
-
-After installing it, open the program and go **File -> Open World** and select the file from the **world** folder in the project.
+</div>
 
 ---
 
-Projede kullanılan simülasyon ortamını [Webots R2023b](https://github.com/cyberbotics/webots/releases/tag/R2023b) linki üzerinden işletim sisteminize uygun olan sürümü indirip kurun.
+## English
 
-Kurulum tamamlandıktan sonra açılan pencerede **File -> Open World** deyip projedeki **world** klasöründeki dosyayı açın.
+## 🇬🇧
 
----
+### About This Project
 
-### Python Libraries(Python Kütüphaneleri):
+This autonomous driving simulation represents a comprehensive approach to self-driving car technology, built entirely within the Webots simulation environment. The project demonstrates real-world autonomous vehicle capabilities including lane detection, traffic sign recognition, obstacle avoidance, and parking assistance.
 
-Use these commands to install the necessary Python libraries:
+The system employs sophisticated computer vision techniques powered by OpenCV and a custom-trained YOLOv4 model for traffic sign detection. The vehicle navigates complex urban environments using advanced PID control algorithms, making real-time decisions based on visual input from dual camera systems.
 
+### ✨ Key Features
+
+**🎯 Advanced Lane Detection**
+- Histogram-based lane pixel analysis
+- Sliding window technique for precise lane tracking  
+- Second-degree polynomial curve fitting
+- Real-time curvature radius calculation
+- Dynamic vehicle positioning within lanes
+
+**🚦 Intelligent Traffic Recognition**
+- YOLOv4-powered traffic sign detection
+- Real-time decision making based on traffic signals
+- Support for stop signs, turn signals, and traffic lights
+- Robust filtering to prevent false detections
+
+**🅿️ Autonomous Parking System**
+- Vision-based parking space detection
+- Specialized lane detection for parking areas
+- Automatic alignment and positioning
+- Multi-step parking maneuver execution
+
+**🚧 Smart Obstacle Avoidance**
+- Camera-based obstacle detection
+- Safe return to original lane after avoidance
+
+**⚙️ Advanced Control Systems**
+- PID controller for smooth steering
+- Multi-camera sensor fusion
+- Real-time image processing pipeline
+- Adaptive speed control based on traffic conditions
+
+### 🔧 Installation & Setup
+
+#### Prerequisites
+- **Webots R2023b**: Download from [official releases](https://github.com/cyberbotics/webots/releases/tag/R2023b)
+- **Python 3.8+** with pip package manager
+
+#### Required Dependencies
 ```bash
 pip3 install opencv-python==4.10.0.84
 pip3 install scipy==1.14.1
 ```
+
+#### YOLOv4 Model Files
+Download the pre-trained YOLOv4 model files from our [Google Drive repository](https://drive.google.com/drive/folders/12GEDLy-Ujzgo5AEnpvfesSiQYkwWzi02?usp=sharing) and place them in the same directory as `main.py`.
+
+#### Getting Started
+1. Install Webots R2023b for your operating system
+2. Open Webots and navigate to **File → Open World**
+3. Select the `.wbt` file from the `worlds` folder
+4. Install the required Python dependencies
+5. Download and place the YOLOv4 model files
+6. Click the play button in Webots to start the simulation
+
+### 🎥 Demonstration Videos
+
+**Bus Stop Detection & Navigation**
+The vehicle demonstrates sophisticated behavior when encountering bus stops, including precise positioning and timed waiting periods.
+
+https://github.com/user-attachments/assets/3796ba41-0a23-4283-8fb9-9ec3148ce33c
+
+**Dynamic Lane Switching** 
+Advanced obstacle avoidance showcasing intelligent lane changing maneuvers with smooth transitions.
+
+https://github.com/user-attachments/assets/a90081f1-d1e7-478b-adcc-0c72c80e530e
+
+**Autonomous Parking Capabilities**
+Precise parking maneuvers demonstrating vision-based space detection and multi-point turn execution.
+
+https://github.com/user-attachments/assets/98a1f074-7a3d-4bde-9d32-81b64f40e523
+
+**Traffic Light Recognition**
+Real-time traffic light detection and appropriate stopping behavior at intersections.
+
+https://github.com/user-attachments/assets/328c157a-2127-43dd-b30e-6ebad8208eec
+
+**Complete Lane Following System**
+Demonstration of the core lane detection and following capabilities with PID control.
+
+https://github.com/user-attachments/assets/c2809628-b58f-4afc-876c-97b30633844d
+
+**Traffic Sign Recognition & Navigation**
+Advanced YOLOv4-based traffic sign detection with appropriate vehicle responses.
+
+https://github.com/user-attachments/assets/30a03da8-7f35-4071-8cfa-f2636c6b6632
+
+### 🏗️ Technical Architecture
+
+**Core Components:**
+- `main.py`: Primary control loop and sensor integration
+- `line.py`: Advanced lane detection algorithms  
+- `durak.py`: Bus stop detection and management
+- `park.py`: Autonomous parking system
+- `dönüş.py`: Turn navigation and traffic sign response
+
+**Camera Systems:**
+- **Primary Camera**: Lane detection and road analysis
+- **Secondary Camera**: Traffic sign recognition and obstacle detection
+
+**Control Algorithms:**
+- **PID Controller**: Precise steering angle calculation
+- **Histogram Analysis**: Lane pixel detection and processing
+- **Polynomial Fitting**: Smooth curve representation of lanes
+- **Sliding Window**: Dynamic lane tracking methodology
+
+### 🚀 Development Roadmap
+
+- ✅ Lane detection and tracking  
+- ✅ Traffic sign recognition  
+- ✅ Obstacle avoidance  
+- ✅ Traffic light recognition  
+- ✅ Parking/stop algorithm  
+- 🔄 Roundabout navigation algorithm  
+- 🔄 Control AI  
+- 🔄 Full system integration (all modules working together)  
+- 🔄 Adaptation to weather conditions  
+- 🔄 Neural network integration  
+
 ---
 
-Aşağıdaki komutlarla gerekli Python kütüphanelerini kurun:
+## Türkçe
 
+## 🇹🇷
+
+### Proje Hakkında
+
+Bu otonom sürüş simülasyonu, tamamen Webots simülasyon ortamında geliştirilmiş kapsamlı bir sürücüsüz araç teknolojisi yaklaşımını temsil eder. Proje, şerit algılama, trafik işareti tanıma, engel kaçınma ve park yardımı dahil olmak üzere gerçek dünya otonom araç yeteneklerini göstermektedir.
+
+Sistem, OpenCV ile desteklenen gelişmiş bilgisayarlı görü teknikleri ve trafik işareti algılama için özel eğitilmiş YOLOv4 modeli kullanır. Araç, çift kamera sistemlerinden gelen görsel girdilere dayalı gerçek zamanlı kararlar alarak, gelişmiş PID kontrol algoritmaları kullanarak karmaşık şehir ortamlarında gezinir.
+
+### ✨ Temel Özellikler
+
+**🎯 Gelişmiş Şerit Algılama**
+- Histogram tabanlı şerit piksel analizi
+- Hassas şerit takibi için kayan pencere tekniği
+- İkinci derece polinom eğri uydurma
+- Gerçek zamanlı eğrilik yarıçapı hesaplama
+- Şeritler içinde dinamik araç konumlandırma
+
+**🚦 Akıllı Trafik Tanıma**
+- YOLOv4 destekli trafik işareti algılama
+- Trafik sinyallerine dayalı gerçek zamanlı karar verme
+- Dur işaretleri, dönüş sinyalleri ve trafik lambaları desteği
+- Yanlış algılamaları önlemek için güçlü filtreleme
+
+**🅿️ Otonom Park Sistemi**
+- Görü tabanlı park alanı algılama
+- Park alanları için özelleşmiş şerit algılama
+- Otomatik hizalama ve konumlandırma
+- Çok adımlı park manevra gerçekleştirme
+
+**🚧 Akıllı Engel Kaçınma**
+- Kamera tabanlı engel algılama
+- Kaçınma sonrası orijinal şeride güvenli dönüş
+
+**⚙️ Gelişmiş Kontrol Sistemleri**
+- Yumuşak direksiyon için PID kontrolör
+- Çok kameralı sensör füzyonu
+- Gerçek zamanlı görüntü işleme hattı
+- Trafik koşullarına göre uyarlanabilir hız kontrolü
+
+### 🔧 Kurulum ve Ayarlar
+
+#### Ön Gereksinimler
+- **Webots R2023b**: [Resmi sürümlerden](https://github.com/cyberbotics/webots/releases/tag/R2023b) indirin
+- **Python 3.8+** ve pip paket yöneticisi
+
+#### Gerekli Bağımlılıklar
 ```bash
 pip3 install opencv-python==4.10.0.84
 pip3 install scipy==1.14.1
 ```
+
+#### YOLOv4 Model Dosyaları
+Önceden eğitilmiş YOLOv4 model dosyalarını [Google Drive depomuzdaki](https://drive.google.com/drive/folders/12GEDLy-Ujzgo5AEnpvfesSiQYkwWzi02?usp=sharing) bağlantıdan indirin ve `main.py` dosyası ile aynı dizine yerleştirin.
+
+#### Başlangıç
+1. İşletim sisteminiz için Webots R2023b'yi kurun
+2. Webots'u açın ve **File → Open World**'a gidin
+3. `worlds` klasöründen `.wbt` dosyasını seçin
+4. Gerekli Python bağımlılıklarını kurun
+5. YOLOv4 model dosyalarını indirin ve yerleştirin
+6. Simülasyonu başlatmak için Webots'ta oynat düğmesine tıklayın
+
+### 🎥 Demonstrasyon Videoları
+
+**Durak Algılama ve Navigasyon**
+Araç, durak karşılaştığında hassas konumlandırma ve zamanlanmış bekleme süreleri dahil gelişmiş davranış sergiler.
+
+https://github.com/user-attachments/assets/3796ba41-0a23-4283-8fb9-9ec3148ce33c
+
+**Dinamik Şerit Değiştirme**
+Yumuşak geçişlerle akıllı şerit değiştirme manevralarını gösteren gelişmiş engel kaçınma.
+
+https://github.com/user-attachments/assets/a90081f1-d1e7-478b-adcc-0c72c80e530e
+
+**Otonom Park Yetenekleri**
+Görü tabanlı alan algılama ve çok noktalı dönüş gerçekleştirmesini gösteren hassas park manevraları.
+
+https://github.com/user-attachments/assets/98a1f074-7a3d-4bde-9d32-81b64f40e523
+
+**Trafik Lambası Tanıma**
+Kavşaklarda gerçek zamanlı trafik lambası algılama ve uygun durma davranışı.
+
+https://github.com/user-attachments/assets/328c157a-2127-43dd-b30e-6ebad8208eec
+
+**Komple Şerit Takip Sistemi**
+PID kontrolü ile temel şerit algılama ve takip yeteneklerinin gösterimi.
+
+https://github.com/user-attachments/assets/c2809628-b58f-4afc-876c-97b30633844d
+
+**Trafik İşareti Tanıma ve Navigasyon**
+Uygun araç tepkileri ile gelişmiş YOLOv4 tabanlı trafik işareti algılama.
+
+https://github.com/user-attachments/assets/30a03da8-7f35-4071-8cfa-f2636c6b6632
+
+### 🏗️ Teknik Mimari
+
+**Temel Bileşenler:**
+- `main.py`: Birincil kontrol döngüsü ve sensör entegrasyonu
+- `line.py`: Gelişmiş şerit algılama algoritmaları
+- `durak.py`: Durak algılama ve yönetimi  
+- `park.py`: Otonom park sistemi
+- `dönüş.py`: Dönüş navigasyonu ve trafik işareti tepkisi
+
+**Kamera Sistemleri:**
+- **Birincil Kamera**: Şerit algılama ve yol analizi
+- **İkincil Kamera**: Trafik işareti tanıma ve engel algılama
+
+**Kontrol Algoritmaları:**
+- **PID Kontrolör**: Hassas direksiyon açısı hesaplama
+- **Histogram Analizi**: Şerit piksel algılama ve işleme
+- **Polinom Uydurma**: Şeritlerin yumuşak eğri temsili
+- **Kayan Pencere**: Dinamik şerit takip metodolojisi
+
+### 🚀 Geliştirme Yol Haritası
+
+- ✅ Şerit algılama ve takibi  
+- ✅ Trafik işareti tanıma  
+- ✅ Engel kaçınma  
+- ✅ Trafik lambası tanıma  
+- ✅ Park/durma algoritması  
+- 🔄 Döner kavşak algoritması  
+- 🔄 Kontrol yapay zekası  
+- 🔄 Tüm sistemlerin entegrasyonu (modüllerin birlikte çalışması)  
+- 🔄 Hava koşullarına uyum  
+- 🔄 Sinir ağı entegrasyonu  
+
 ---
 
-### Yolo Model Files(Yolo Model Dosyaları):
-
-Download [YoloV4 files](https://drive.google.com/drive/folders/12GEDLy-Ujzgo5AEnpvfesSiQYkwWzi02?usp=sharing) and put them in the same folder where **main.py** is located.
-
----
-
-[YoloV4 dosyalarını](https://drive.google.com/drive/folders/12GEDLy-Ujzgo5AEnpvfesSiQYkwWzi02?usp=sharing) indirin ve **main.py** dosyasının bulunduğu klasöre yerleştirin.
-
----
-
-### Starting the Project(Projeyi Başlatma):
-
-After you load the world in Webots, you can start the simulation by clicking the arrow next to the time box at the top.
-
-Webots'ta dünyayı yükledikten sonra simülasyonu başlatmak için üst kısımdaki zaman kutusunun yanında yer alan ok işaretlerine tıklayarak simülasyonu başlatabilirsiniz.
+## Günlük ilerlemeler
 
 ---
 

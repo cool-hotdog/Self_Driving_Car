@@ -2,10 +2,10 @@
 
 # Self Driving Car
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)  
-[![OpenCV](https://img.shields.io/badge/OpenCV-4.10.0-green.svg)](https://opencv.org)  
-[![YOLOv4](https://img.shields.io/badge/YOLOv4-Detection-red.svg)](https://github.com/AlexeyAB/darknet)  
-[![Webots](https://img.shields.io/badge/Webots-R2023b-orange.svg)](https://cyberbotics.com)
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org) 
+[![OpenCV](https://img.shields.io/badge/OpenCV-4.10.0-green.svg)](https://opencv.org) 
+[![YOLOv4](https://img.shields.io/badge/YOLOv4-Detection-red.svg)](https://github.com/AlexeyAB/darknet) 
+[![Webots](https://img.shields.io/badge/Webots-R2023b-orange.svg)](https://cyberbotics.com) 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 🚗 **An intelligent autonomous vehicle simulation project featuring advanced computer vision and control algorithms**

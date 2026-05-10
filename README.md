@@ -12,7 +12,7 @@
 
 ---
 
-[🇬🇧 English](#english) | [🇹🇷 Türkçe](#türkçe) | [🇨🇳 中文](README_CN.md)
+[🇬🇧 English](#english) | [🇹🇷 Türkçe](#türkçe) | [🇨🇳 中文](#chinese)
 
 </div>
 

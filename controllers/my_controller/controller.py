@@ -73,7 +73,7 @@ def lane_center_offset(frame):
     edges = cv2.Canny(blur, 50, 150)
     roi = region_of_interest(edges)
     lines = cv2.HoughLinesP(roi, 2, np.pi / 180, 50, minLineLength=40, maxLineGap=100)
-    detected_lines_count = 0 if lines is None else len(lines)
+    detected_lines_count = max(0, 0 if lines is None else len(lines))
     lanes = average_lane_line(lines, width, height)
     if not lanes or lanes == (None, None):
         return 0.0, 0.0
@@ -130,7 +130,12 @@ def run():
 
     if left_camera is None and right_camera is None:
         return
-    if left_camera is right_camera:
+    shared_camera = (
+        left_camera is not None
+        and right_camera is not None
+        and left_camera is right_camera
+    )
+    if shared_camera:
         right_camera = None
     if left_camera is not None:
         left_camera.enable(timestep)

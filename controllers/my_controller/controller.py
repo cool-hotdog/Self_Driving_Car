@@ -73,7 +73,7 @@ def lane_center_offset(frame):
     edges = cv2.Canny(blur, 50, 150)
     roi = region_of_interest(edges)
     lines = cv2.HoughLinesP(roi, 2, np.pi / 180, 50, minLineLength=40, maxLineGap=100)
-    detected_lines_count = max(0, 0 if lines is None else len(lines))
+    detected_lines_count = 0 if lines is None else len(lines)
     lanes = average_lane_line(lines, width, height)
     if not lanes or lanes == (None, None):
         return 0.0, 0.0
@@ -103,6 +103,12 @@ def combine_offsets(left_offset, left_conf, right_offset, right_conf):
     return float((left_offset * left_conf + right_offset * right_conf) / total)
 
 
+def offset_and_confidence(frame):
+    if frame is None:
+        return 0.0, 0.0
+    return lane_center_offset(frame)
+
+
 def combine_speeds(*speeds):
     valid = [speed for speed in speeds if speed is not None]
     if not valid:
@@ -130,12 +136,12 @@ def run():
 
     if left_camera is None and right_camera is None:
         return
-    shared_camera = (
+    same_camera_instance = (
         left_camera is not None
         and right_camera is not None
         and left_camera is right_camera
     )
-    if shared_camera:
+    if same_camera_instance:
         right_camera = None
     if left_camera is not None:
         left_camera.enable(timestep)
@@ -154,8 +160,8 @@ def run():
         left_gray = cv2.cvtColor(left_frame, cv2.COLOR_BGR2GRAY) if left_frame is not None else None
         right_gray = cv2.cvtColor(right_frame, cv2.COLOR_BGR2GRAY) if right_frame is not None else None
 
-        left_offset, left_conf = lane_center_offset(left_frame) if left_frame is not None else (0.0, 0.0)
-        right_offset, right_conf = lane_center_offset(right_frame) if right_frame is not None else (0.0, 0.0)
+        left_offset, left_conf = offset_and_confidence(left_frame)
+        right_offset, right_conf = offset_and_confidence(right_frame)
         offset = combine_offsets(left_offset, left_conf, right_offset, right_conf)
 
         steering = float(np.clip(-offset * STEER_GAIN, -1.0, 1.0))

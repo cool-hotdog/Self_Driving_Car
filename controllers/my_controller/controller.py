@@ -9,13 +9,17 @@ MAX_SPEED = 25.0
 STEER_GAIN = 0.8
 FLOW_GAIN = 0.35
 LINE_CONFIDENCE_SCALE = 12.0
+LEFT_CAMERA_NAMES = ("camera_left", "camera")
+RIGHT_CAMERA_NAMES = ("camera_right", "camera2")
 
 
 def get_camera(driver, names):
     for name in names:
         try:
             camera = driver.getDevice(name)
-        except RuntimeError:
+        except RuntimeError as error:
+            if "device" not in str(error).lower():
+                raise
             camera = None
         if camera is not None:
             return camera
@@ -123,8 +127,6 @@ def combine_speeds(*speeds):
 
 
 def estimate_speed(prev_gray, gray):
-    if prev_gray is None or gray is None:
-        return BASE_SPEED
     flow = cv2.calcOpticalFlowFarneback(prev_gray, gray, None, 0.5, 3, 15, 3, 5, 1.2, 0)
     mag, _ = cv2.cartToPolar(flow[..., 0], flow[..., 1])
     roi = mag[int(mag.shape[0] * 0.5):, :]
@@ -133,12 +135,18 @@ def estimate_speed(prev_gray, gray):
     return float(np.clip(target_speed, MIN_SPEED, MAX_SPEED))
 
 
+def speed_from_frames(prev_gray, gray):
+    if prev_gray is None or gray is None:
+        return None
+    return estimate_speed(prev_gray, gray)
+
+
 def run():
     driver = Driver()
     timestep = int(driver.getBasicTimeStep())
 
-    left_camera = get_camera(driver, ("camera_left", "camera"))
-    right_camera = get_camera(driver, ("camera_right", "camera2"))
+    left_camera = get_camera(driver, LEFT_CAMERA_NAMES)
+    right_camera = get_camera(driver, RIGHT_CAMERA_NAMES)
 
     if left_camera is None and right_camera is None:
         return
@@ -172,16 +180,8 @@ def run():
 
         steering = float(np.clip(-offset * STEER_GAIN, -1.0, 1.0))
 
-        left_speed = (
-            estimate_speed(prev_left_gray, left_gray)
-            if left_gray is not None and prev_left_gray is not None
-            else None
-        )
-        right_speed = (
-            estimate_speed(prev_right_gray, right_gray)
-            if right_gray is not None and prev_right_gray is not None
-            else None
-        )
+        left_speed = speed_from_frames(prev_left_gray, left_gray)
+        right_speed = speed_from_frames(prev_right_gray, right_gray)
         target_speed = combine_speeds(left_speed, right_speed)
 
         driver.setSteeringAngle(steering)

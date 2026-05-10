@@ -127,6 +127,8 @@ def combine_speeds(*speeds):
 
 
 def estimate_speed(prev_gray, gray):
+    if prev_gray is None or gray is None:
+        return BASE_SPEED
     flow = cv2.calcOpticalFlowFarneback(prev_gray, gray, None, 0.5, 3, 15, 3, 5, 1.2, 0)
     mag, _ = cv2.cartToPolar(flow[..., 0], flow[..., 1])
     roi = mag[int(mag.shape[0] * 0.5):, :]
@@ -149,7 +151,7 @@ def run():
     right_camera = get_camera(driver, RIGHT_CAMERA_NAMES)
 
     if left_camera is None and right_camera is None:
-        return
+        raise RuntimeError("No cameras found for controller.")
     same_camera_instance = (
         left_camera is not None
         and right_camera is not None

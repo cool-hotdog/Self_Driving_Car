@@ -15,7 +15,7 @@ def get_camera(driver, names):
     for name in names:
         try:
             camera = driver.getDevice(name)
-        except (RuntimeError, ValueError):
+        except RuntimeError:
             camera = None
         if camera is not None:
             return camera
@@ -73,7 +73,7 @@ def lane_center_offset(frame):
     edges = cv2.Canny(blur, 50, 150)
     roi = region_of_interest(edges)
     lines = cv2.HoughLinesP(roi, 2, np.pi / 180, 50, minLineLength=40, maxLineGap=100)
-    detected_lines_count = 0 if lines is None else len(lines)
+    line_count = 0 if lines is None else len(lines)
     lanes = average_lane_line(lines, width, height)
     if not lanes or lanes == (None, None):
         return 0.0, 0.0
@@ -92,7 +92,7 @@ def lane_center_offset(frame):
     lane_center = (left_x_bottom + right_x_bottom) / 2.0
     image_center = width / 2.0
     offset = (lane_center - image_center) / image_center
-    confidence = min(1.0, detected_lines_count / LINE_CONFIDENCE_SCALE)
+    confidence = min(1.0, line_count / LINE_CONFIDENCE_SCALE)
     return float(offset), float(confidence)
 
 
@@ -101,6 +101,12 @@ def combine_offsets(left_offset, left_conf, right_offset, right_conf):
     if total <= 0.0:
         return 0.0
     return float((left_offset * left_conf + right_offset * right_conf) / total)
+
+
+def frame_to_gray(frame):
+    if frame is None:
+        return None
+    return cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
 
 def offset_and_confidence(frame):
@@ -117,7 +123,7 @@ def combine_speeds(*speeds):
 
 
 def estimate_speed(prev_gray, gray):
-    if prev_gray is None:
+    if prev_gray is None or gray is None:
         return BASE_SPEED
     flow = cv2.calcOpticalFlowFarneback(prev_gray, gray, None, 0.5, 3, 15, 3, 5, 1.2, 0)
     mag, _ = cv2.cartToPolar(flow[..., 0], flow[..., 1])
@@ -157,8 +163,8 @@ def run():
         if left_frame is None and right_frame is None:
             continue
 
-        left_gray = cv2.cvtColor(left_frame, cv2.COLOR_BGR2GRAY) if left_frame is not None else None
-        right_gray = cv2.cvtColor(right_frame, cv2.COLOR_BGR2GRAY) if right_frame is not None else None
+        left_gray = frame_to_gray(left_frame)
+        right_gray = frame_to_gray(right_frame)
 
         left_offset, left_conf = offset_and_confidence(left_frame)
         right_offset, right_conf = offset_and_confidence(right_frame)
@@ -166,8 +172,16 @@ def run():
 
         steering = float(np.clip(-offset * STEER_GAIN, -1.0, 1.0))
 
-        left_speed = estimate_speed(prev_left_gray, left_gray) if left_gray is not None else None
-        right_speed = estimate_speed(prev_right_gray, right_gray) if right_gray is not None else None
+        left_speed = (
+            estimate_speed(prev_left_gray, left_gray)
+            if left_gray is not None and prev_left_gray is not None
+            else None
+        )
+        right_speed = (
+            estimate_speed(prev_right_gray, right_gray)
+            if right_gray is not None and prev_right_gray is not None
+            else None
+        )
         target_speed = combine_speeds(left_speed, right_speed)
 
         driver.setSteeringAngle(steering)

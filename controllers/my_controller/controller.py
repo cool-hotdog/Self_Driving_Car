@@ -15,7 +15,7 @@ def get_camera(driver, names):
     for name in names:
         try:
             camera = driver.getDevice(name)
-        except Exception:
+        except (RuntimeError, ValueError):
             camera = None
         if camera is not None:
             return camera
@@ -73,7 +73,7 @@ def lane_center_offset(frame):
     edges = cv2.Canny(blur, 50, 150)
     roi = region_of_interest(edges)
     lines = cv2.HoughLinesP(roi, 2, np.pi / 180, 50, minLineLength=40, maxLineGap=100)
-    line_count = 0 if lines is None else len(lines)
+    detected_lines_count = 0 if lines is None else len(lines)
     lanes = average_lane_line(lines, width, height)
     if not lanes or lanes == (None, None):
         return 0.0, 0.0
@@ -92,7 +92,7 @@ def lane_center_offset(frame):
     lane_center = (left_x_bottom + right_x_bottom) / 2.0
     image_center = width / 2.0
     offset = (lane_center - image_center) / image_center
-    confidence = min(1.0, line_count / LINE_CONFIDENCE_SCALE)
+    confidence = min(1.0, detected_lines_count / LINE_CONFIDENCE_SCALE)
     return float(offset), float(confidence)
 
 
@@ -130,12 +130,12 @@ def run():
 
     if left_camera is None and right_camera is None:
         return
-    if left_camera is not None:
-        left_camera.enable(timestep)
-    if right_camera is not None and right_camera is not left_camera:
-        right_camera.enable(timestep)
     if left_camera is right_camera:
         right_camera = None
+    if left_camera is not None:
+        left_camera.enable(timestep)
+    if right_camera is not None:
+        right_camera.enable(timestep)
 
     prev_left_gray = None
     prev_right_gray = None

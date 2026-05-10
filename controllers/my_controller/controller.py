@@ -8,22 +8,20 @@ MIN_SPEED = 5.0
 MAX_SPEED = 25.0
 STEER_GAIN = 0.8
 FLOW_GAIN = 0.35
-LINE_CONFIDENCE_SCALE = 12.0
+FULL_CONFIDENCE_LINE_COUNT = 12.0
 LEFT_CAMERA_NAMES = ("camera_left", "camera")
 RIGHT_CAMERA_NAMES = ("camera_right", "camera2")
 
 
-def get_camera(driver, names):
+def get_available_device_names(driver):
+    return {driver.getDeviceByIndex(i).getName() for i in range(driver.getNumberOfDevices())}
+
+
+def get_camera(driver, names, available_names):
     for name in names:
-        try:
-            camera = driver.getDevice(name)
-        except RuntimeError as error:
-            if "device" not in str(error).lower():
-                raise
-            camera = None
-        if camera is not None:
-            return camera
-    return None
+        if name in available_names:
+            return driver.getDevice(name), name
+    return None, None
 
 
 def camera_to_bgr(camera):
@@ -96,7 +94,7 @@ def lane_center_offset(frame):
     lane_center = (left_x_bottom + right_x_bottom) / 2.0
     image_center = width / 2.0
     offset = (lane_center - image_center) / image_center
-    confidence = min(1.0, line_count / LINE_CONFIDENCE_SCALE)
+    confidence = min(1.0, line_count / FULL_CONFIDENCE_LINE_COUNT)
     return float(offset), float(confidence)
 
 
@@ -147,15 +145,14 @@ def run():
     driver = Driver()
     timestep = int(driver.getBasicTimeStep())
 
-    left_camera = get_camera(driver, LEFT_CAMERA_NAMES)
-    right_camera = get_camera(driver, RIGHT_CAMERA_NAMES)
+    available_names = get_available_device_names(driver)
+    left_camera, left_name = get_camera(driver, LEFT_CAMERA_NAMES, available_names)
+    right_camera, right_name = get_camera(driver, RIGHT_CAMERA_NAMES, available_names)
 
     if left_camera is None and right_camera is None:
         raise RuntimeError("No cameras found for controller.")
     same_camera_instance = (
-        left_camera is not None
-        and right_camera is not None
-        and left_camera is right_camera
+        left_name is not None and right_name is not None and left_name == right_name
     )
     if same_camera_instance:
         right_camera = None
